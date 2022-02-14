@@ -20,13 +20,17 @@ abstract class AlbumsRecord
   String get description;
 
   @nullable
+  int get year;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
   static void _initializeBuilder(AlbumsRecordBuilder builder) => builder
     ..name = ''
     ..art = ''
-    ..description = '';
+    ..description = ''
+    ..year = 0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('albums');
@@ -53,10 +57,12 @@ Map<String, dynamic> createAlbumsRecordData({
   String name,
   String art,
   String description,
+  int year,
 }) =>
     serializers.toFirestore(
         AlbumsRecord.serializer,
         AlbumsRecord((a) => a
           ..name = name
           ..art = art
-          ..description = description));
+          ..description = description
+          ..year = year));

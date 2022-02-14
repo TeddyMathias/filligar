@@ -37,44 +37,44 @@ abstract class FlutterFlowTheme {
   Color primaryText;
   Color secondaryText;
 
-  TextStyle get title1 => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get title1 => TextStyle(
+        fontFamily: 'Sporting',
         color: primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 24,
       );
-  TextStyle get title2 => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get title2 => TextStyle(
+        fontFamily: 'Sporting',
         color: secondaryText,
         fontWeight: FontWeight.w600,
         fontSize: 22,
       );
-  TextStyle get title3 => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get title3 => TextStyle(
+        fontFamily: 'Sporting',
         color: primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 20,
       );
-  TextStyle get subtitle1 => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get subtitle1 => TextStyle(
+        fontFamily: 'Sporting',
         color: primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 18,
       );
-  TextStyle get subtitle2 => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get subtitle2 => TextStyle(
+        fontFamily: 'Sporting',
         color: secondaryText,
         fontWeight: FontWeight.w600,
         fontSize: 16,
       );
   TextStyle get bodyText1 => GoogleFonts.getFont(
-        'Poppins',
+        'Source Sans Pro',
         color: primaryText,
         fontWeight: FontWeight.w600,
         fontSize: 14,
       );
-  TextStyle get bodyText2 => GoogleFonts.getFont(
-        'Poppins',
+  TextStyle get bodyText2 => TextStyle(
+        fontFamily: 'Sporting',
         color: secondaryText,
         fontWeight: FontWeight.w600,
         fontSize: 14,
@@ -84,22 +84,22 @@ abstract class FlutterFlowTheme {
 class LightModeTheme extends FlutterFlowTheme {
   Color primaryColor = const Color(0xFF4B39EF);
   Color secondaryColor = const Color(0xFF39D2C0);
-  Color tertiaryColor = const Color(0xFFEE8B60);
+  Color tertiaryColor = const Color(0xFF79EE60);
   Color alternate = const Color(0xFFFF5963);
-  Color primaryBackground = const Color(0xFFFFFFFF);
+  Color primaryBackground = const Color(0xFF000000);
   Color secondaryBackground = const Color(0xFFF1F4F8);
-  Color primaryText = const Color(0xFF091249);
+  Color primaryText = const Color(0xFFFFFFFF);
   Color secondaryText = const Color(0xFF57636C);
 }
 
 class DarkModeTheme extends FlutterFlowTheme {
   Color primaryColor = const Color(0xFF4B39EF);
   Color secondaryColor = const Color(0xFF39D2C0);
-  Color tertiaryColor = const Color(0xFFEE8B60);
+  Color tertiaryColor = const Color(0x00000000);
   Color alternate = const Color(0xFFFF5963);
-  Color primaryBackground = const Color(0xFF091249);
+  Color primaryBackground = const Color(0x00000000);
   Color secondaryBackground = const Color(0xFF1D2429);
-  Color primaryText = const Color(0xFFFFFFFF);
+  Color primaryText = const Color(0x00000000);
   Color secondaryText = const Color(0xFF95A1AC);
 }
 
