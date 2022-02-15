@@ -29,7 +29,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
+                padding: EdgeInsetsDirectional.fromSTEB(50, 0, 50, 0),
                 child: FFButtonWidget(
                   onPressed: () async {
                     await Navigator.push(
@@ -46,7 +46,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                   ),
                   options: FFButtonOptions(
                     width: double.infinity,
-                    height: 80,
+                    height: 60,
                     color: FlutterFlowTheme.of(context).primaryColor,
                     textStyle: FlutterFlowTheme.of(context).subtitle2.override(
                           fontFamily: 'Sporting',
@@ -57,7 +57,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                       color: Colors.transparent,
                       width: 1,
                     ),
-                    borderRadius: 12,
+                    borderRadius: 100,
                   ),
                 ),
               ),

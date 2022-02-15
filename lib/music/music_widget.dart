@@ -181,6 +181,95 @@ class _MusicWidgetState extends State<MusicWidget> {
                   },
                 ),
               ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(15, 8, 16, 0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 20, 0, 20),
+                      child: Text(
+                        'Digital Art',
+                        style: FlutterFlowTheme.of(context).subtitle2.override(
+                              fontFamily: 'Lexend Deca',
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                            ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(15, 0, 0, 0),
+                child: StreamBuilder<List<AlbumsRecord>>(
+                  stream: queryAlbumsRecord(
+                    queryBuilder: (albumsRecord) =>
+                        albumsRecord.orderBy('year', descending: true),
+                  ),
+                  builder: (context, snapshot) {
+                    // Customize what your widget looks like when it's loading.
+                    if (!snapshot.hasData) {
+                      return Center(
+                        child: LinearProgressIndicator(
+                          color: FlutterFlowTheme.of(context).primaryColor,
+                        ),
+                      );
+                    }
+                    List<AlbumsRecord> eventsListAlbumsRecordList =
+                        snapshot.data;
+                    return SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children:
+                            List.generate(eventsListAlbumsRecordList.length,
+                                (eventsListIndex) {
+                          final eventsListAlbumsRecord =
+                              eventsListAlbumsRecordList[eventsListIndex];
+                          return Padding(
+                            padding:
+                                EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                            child: Container(
+                              width: 200,
+                              height: 200,
+                              decoration: BoxDecoration(
+                                color: Color(0x00EEEEEE),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10, 10, 10, 1),
+                                child: InkWell(
+                                  onTap: () async {
+                                    await Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => MusicDetailWidget(
+                                          musicRef: eventsListAlbumsRecord,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(100),
+                                    child: CachedNetworkImage(
+                                      imageUrl: eventsListAlbumsRecord.art,
+                                      width: double.infinity,
+                                      height: double.infinity,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        }),
+                      ),
+                    );
+                  },
+                ),
+              ),
             ],
           ),
         ),
